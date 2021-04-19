@@ -1,3 +1,8 @@
+---
+id: antenna
+title: Antenna
+---
+
 ## Antenna Basics
 
 Antenna is an important part for satellite reception. The small black stick antenna that comes with your LoRa board most likely will not give any result.
