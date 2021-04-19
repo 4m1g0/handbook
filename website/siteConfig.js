@@ -9,7 +9,7 @@
 // site configuration options.
 
 const siteConfig = {
-  title: 'Jitsi Meet Handbook', // Title for your website.
+  title: 'TinyGS Documentation', // Title for your website.
   tagline: 'The best Open Source video-conferencing service. Now with docs.',
   url: 'https://4m1g0.github.io/handbook', // Your website URL
   baseUrl: '/handbook/', // Base URL for your project */
