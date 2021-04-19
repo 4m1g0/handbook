@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Ground-Station-configuration · Jitsi Meet Handbook</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The TinyGS firmware provides a web panel for board configuration. This makes it easy to review the state of the ground station, change any parameter and even upload a new firmware remotely. Also it ensures that configuration is kept after a new firmware version is uploaded."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Ground-Station-configuration · Jitsi Meet Handbook"/><meta property="og:type" content="website"/><meta property="og:url" content="https://4m1g0.github.io/handbook/handbook/"/><meta property="og:description" content="The TinyGS firmware provides a web panel for board configuration. This makes it easy to review the state of the ground station, change any parameter and even upload a new firmware remotely. Also it ensures that configuration is kept after a new firmware version is uploaded."/><meta property="og:image" content="https://4m1g0.github.io/handbook/handbook/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://4m1g0.github.io/handbook/handbook/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/handbook/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="/css/docusaurus-admonitions.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/handbook/js/scrollSpy.js"></script><link rel="stylesheet" href="/handbook/css/main.css"/><script src="/handbook/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/handbook/"><img class="logo" src="/handbook/img/logo-white.png" alt="Jitsi Meet Handbook"/><h2 class="headerTitleWithLogo">Jitsi Meet Handbook</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/handbook/docs/intro" target="_self">Docs</a></li><li class=""><a href="/handbook/help" target="_self">Help</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/jitsi/handbook/edit/master/docs/Ground-Station-configuration.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Ground-Station-configuration</h1></header><article><div><span><p>The TinyGS firmware provides a web panel for board configuration. This makes it easy to review the state of the ground station, change any parameter and even upload a new firmware remotely. Also it ensures that configuration is kept after a new firmware version is uploaded.</p>
+<p>The first time the board boot it will generate an AP with the name: My TinyGS. Once connected to that network you should be prompted with a web panel to configure the basic parameters of your station. If that were not the case, you can access the web panel using a web browser and going to the url <code>192.168.4.1</code>.</p>
+<p float="left" align="center">
+  <img src="images/config_ap.jpg" width="300" />
+  <img src="images/config_wifimanager.jpg" width="270" /> 
+</p>
+<p>The parameters that must be filled are the following:</p>
+<ul>
+<li><strong>GROUNDSTATION NAME:</strong> The name of your ground station. You can use any name you want try to choose a name that is unique.
+<strong>GROUNDSTATION PASSWORD:</strong> This is the password of your ground station, you will be asked for this password next time you connect to it through the web panel. <strong>The user is always <code>admin</code></strong></li>
+<li><strong>SSID and PASSWORD:</strong> The configuration parameters of you home WiFi AP so that the ground station can connect to internet.</li>
+<li><strong>TIME ZONE:</strong> Your timezone, this is to show you the time imformation in your timezone.</li>
+<li><strong>LATITUDE and LONGITUDE:</strong> The geographical coordinates of the ground station. This serves the purpose of locating your ground station when you receive a package from the satellite. You can see all the stations on the <a href="https://tinygs.com/">TinyGS.com website</a>.</li>
+<li><strong>MQTT_SERVER and MQTT_PORT:</strong> These are the address and port of the MQTT server of the project you should not change them if you want the Ground Station to be able to connect the main server.</li>
+<li><strong>MQTT_USER and MQTT_PASS:</strong> These are the credentials of the project MQTT server, the purpose is to be able to collect the most packets from the satellite and manage all groundStations from this central server. You can ask for user and password in this Telegram group: <a href="https://t.me/joinchat/DmYSElZahiJGwHX6jCzB3Q">https://t.me/joinchat/DmYSElZahiJGwHX6jCzB3Q</a></li>
+<li><strong>BOARD TYPE:</strong> The hardware board you are using. The firmware is able to autodetect your board but, in case the selection is wrong or you know what you are doing, you can change it manually by modifying this parameter.</li>
+<li><strong>OLED Bright:</strong> Controls the brightness of the oled you can configure it acording to your taste. It is recommended to set a value lower than 100 to extend the life of the OLED.</li>
+<li><strong>Enable TX:</strong> This parameter enables or disables the TX function. In some of the frequencies used by satellites only licensed radio operators can transmit. The station will never transmit without your intervention but if you don't have a license we recomend to disable this option to avoid triggering a tx by mistake.</li>
+<li><strong>Automatic tunning:</strong> (Experimental) If this option is activated, the system will try to get the prediction from the satellites and set the radio parameters automatically to maximize the options of receiving a satellite.</li>
+<li><strong>Telemetry to third party:</strong> Some of the satellite operatos, usually universities, have asked us to send the data received by the network so they have more data to study. If you disable this option, no data will be sent to third parties.</li>
+<li><strong>Test Mode:</strong> This option sets your station in test mode. All the packets will be marked as test. Use this option if you are making tests for example retransmitting old packets so that the data does not count as actual data.</li>
+<li><strong>Automatic Firmware Update:</strong> This option enables or disables automatic firmware updates. We recommend to leave it always enabled so your board receives always the lastest updates.</li>
+<li><strong>Board template:</strong> This field provides an easy way to configure any type of board with custom pinout. Learn more about <a href="https://github.com/G4lile0/tinyGS/wiki/Board-templates">Board Templates here</a>.</li>
+<li><strong>Modem startup:</strong> This option contains the initial radio configuration for the board, this will be changed by the server but it's useful to keep the config after rebooting and to allow ofline operation.</li>
+<li><strong>Avanced parameters:</strong> This option provides a set of advanced parameters mostly for developing and debugging tasks.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="current-available-boards"></a><a href="#current-available-boards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Current available boards</h2>
+<h3><a class="anchor" aria-hidden="true" id="heltec-wifi-lora-32-v1"></a><a href="#heltec-wifi-lora-32-v1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HELTEC WiFi LoRA 32 V1</h3>
+<p>This is the stock Heltec v1 LoRa board, it should be detected automatically and be selected by default if you have this board.</p>
+<p><img src="images/boards/heltec_lora_32_v1.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="heltec-wifi-lora-32-v2"></a><a href="#heltec-wifi-lora-32-v2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HELTEC WiFi LoRA 32 V2</h3>
+<p>This is the version 2 of the Heltec LoRa board, if you have this board, probably it is not detected automatically and you have to select it on the config panel manually. If you don't do so the Lora communication will not work.</p>
+<p><img src="images/boards/heltec_lora_32_v2.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="ttgo-lora-32-v1"></a><a href="#ttgo-lora-32-v1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TTGO LoRa 32 v1</h3>
+<p>This is the first version of the TTGO LoRa board,it should be detected automatically and be selected by default if you have this board.</p>
+<p><img src="images/boards/ttgo_v1.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="ttgo-lora-32-v2"></a><a href="#ttgo-lora-32-v2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TTGO LoRA 32 v2</h3>
+<p>This is the version 2 of the TTGO LoRa board, if you have this board, probably it is not detected automatically and you have to select it on the config panel manually. If you don't do so the Lora communication will not work.</p>
+<p><img src="images/boards/ttgo_v2.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="t-beam--oled"></a><a href="#t-beam--oled" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>T-BEAM + OLED</h3>
+<p>Warning this board is supposed to work with this configuration but it will not be automatically detected and it's not properly tested yet. If you have this board we would like to hear your experience.</p>
+<p><img src="images/boards/ttgo_tbeam.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="custom-esp32-wroom--sx126x-crystal"></a><a href="#custom-esp32-wroom--sx126x-crystal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom ESP32 Wroom + SX126x (Crystal)</h3>
+<p>This is a custom made ground station with a SX1268 module provided with a crystal oscillator (no TCXO). It is set up on a breadboard although a soldered protoboard is highly recommended if you decide to go for this type of setup. The OLED display is optional but also recommended.</p>
+<p>Pin definition for this board is the following:</p>
+<table>
+<thead>
+<tr><th>Name</th><th>GPIO</th></tr>
+</thead>
+<tbody>
+<tr><td>OLED_SDA</td><td>21</td></tr>
+<tr><td>OLED_SCL</td><td>22</td></tr>
+<tr><td>OLED_RST</td><td>16</td></tr>
+<tr><td>PROG_BUTTON</td><td>0</td></tr>
+<tr><td>BOARD_LED</td><td>25</td></tr>
+<tr><td>Lora_NSS</td><td>5</td></tr>
+<tr><td>Lora_DI01</td><td>27</td></tr>
+<tr><td>Lora_BUSSY</td><td>26</td></tr>
+<tr><td>Lora_RST</td><td>14</td></tr>
+<tr><td>Lora_MISO</td><td>19</td></tr>
+<tr><td>Lora_MOSI</td><td>23</td></tr>
+<tr><td>Lora_SCK</td><td>18</td></tr>
+</tbody>
+</table>
+<p><img src="images/boards/custom_esp32_sx1268_crystal.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="ttgo-lora-32-v2-modified-with-module-sx126x-crystal"></a><a href="#ttgo-lora-32-v2-modified-with-module-sx126x-crystal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TTGO LoRa 32 V2 Modified with module SX126x (crystal)</h3>
+<p>The TTGO V2 board comes with a soldered module on board. This means that, with a little patience, the appropriate tools and some expertise, it's possible to desolder the original SX127X lora module and solder a SX126X. This configuration is meant to use a SX126X with a crystal oscillator (no TCXO).</p>
+<p>It's also needed to use jumper cables to connect LoRa pins DIO1 to GPIO 33 and BUSSY to GPIO 32 which are not connected on the TTGO V2 but exposed as pins.</p>
+<p><img src="images/boards/ttgo_v2.jpg" alt=""></p>
+<h3><a class="anchor" aria-hidden="true" id="custom-esp32-wroom--sx126x-drf1268t-tcxo-5-2-26-13"></a><a href="#custom-esp32-wroom--sx126x-drf1268t-tcxo-5-2-26-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom ESP32 Wroom + SX126x DRF1268T (TCXO) (5, 2, 26, 13)</h3>
+<p>This is a custom made ground station with a SX1268 module provided with a TCXO. A soldered protoboard is highly recommended instead of a breadboard if you decide to go for this type of setup. The OLED display is optional but also recommended.</p>
+<p>Pin definition for this board is the following:</p>
+<table>
+<thead>
+<tr><th>Name</th><th>GPIO</th></tr>
+</thead>
+<tbody>
+<tr><td>OLED_SDA</td><td>21</td></tr>
+<tr><td>OLED_SCL</td><td>22</td></tr>
+<tr><td>OLED_RST</td><td>16</td></tr>
+<tr><td>PROG_BUTTON</td><td>0</td></tr>
+<tr><td>BOARD_LED</td><td>25</td></tr>
+<tr><td>Lora_NSS</td><td>5</td></tr>
+<tr><td>Lora_DI01</td><td>2</td></tr>
+<tr><td>Lora_BUSSY</td><td>13</td></tr>
+<tr><td>Lora_RST</td><td>26</td></tr>
+<tr><td>Lora_MISO</td><td>19</td></tr>
+<tr><td>Lora_MOSI</td><td>23</td></tr>
+<tr><td>Lora_SCK</td><td>18</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="custom-esp32-wroom--sx126x-drf1268t-tcxo-5-26-14-12"></a><a href="#custom-esp32-wroom--sx126x-drf1268t-tcxo-5-26-14-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom ESP32 Wroom + SX126x DRF1268T (TCXO) (5, 26, 14, 12)</h3>
+<p>This is the same custom board as the previous one but with different GPIO arrangement. Both are kept for compatibility reasons.</p>
+<p>Pin definition for this board is the following:</p>
+<table>
+<thead>
+<tr><th>Name</th><th>GPIO</th></tr>
+</thead>
+<tbody>
+<tr><td>OLED_SDA</td><td>21</td></tr>
+<tr><td>OLED_SCL</td><td>22</td></tr>
+<tr><td>OLED_RST</td><td>16</td></tr>
+<tr><td>PROG_BUTTON</td><td>0</td></tr>
+<tr><td>BOARD_LED</td><td>25</td></tr>
+<tr><td>Lora_NSS</td><td>5</td></tr>
+<tr><td>Lora_DI01</td><td>26</td></tr>
+<tr><td>Lora_BUSSY</td><td>12</td></tr>
+<tr><td>Lora_RST</td><td>14</td></tr>
+<tr><td>Lora_MISO</td><td>19</td></tr>
+<tr><td>Lora_MOSI</td><td>23</td></tr>
+<tr><td>Lora_SCK</td><td>18</td></tr>
+</tbody>
+</table>
+<h1><a class="anchor" aria-hidden="true" id="adding-a-custom-board-to-the-system"></a><a href="#adding-a-custom-board-to-the-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding a custom board to the system</h1>
+<p>If you are planning to build your custom board, we recommend using one of the existant pin configurations. In case you already have a board with a different configuration and is not possible to change, you can add your own pin configuration using a <a href="https://github.com/G4lile0/tinyGS/wiki/Board-templates">Board Template.</a></p>
+<p>We don't recommend to modify the code and instead use a board template so your configuration will be persisted after a software update. You can find more information about how to use your custom Board Template here: <a href="https://github.com/G4lile0/tinyGS/wiki/Board-templates">https://github.com/G4lile0/tinyGS/wiki/Board-templates</a></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/19/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#current-available-boards">Current available boards</a><ul class="toc-headings"><li><a href="#heltec-wifi-lora-32-v1">HELTEC WiFi LoRA 32 V1</a></li><li><a href="#heltec-wifi-lora-32-v2">HELTEC WiFi LoRA 32 V2</a></li><li><a href="#ttgo-lora-32-v1">TTGO LoRa 32 v1</a></li><li><a href="#ttgo-lora-32-v2">TTGO LoRA 32 v2</a></li><li><a href="#t-beam--oled">T-BEAM + OLED</a></li><li><a href="#custom-esp32-wroom--sx126x-crystal">Custom ESP32 Wroom + SX126x (Crystal)</a></li><li><a href="#ttgo-lora-32-v2-modified-with-module-sx126x-crystal">TTGO LoRa 32 V2 Modified with module SX126x (crystal)</a></li><li><a href="#custom-esp32-wroom--sx126x-drf1268t-tcxo-5-2-26-13">Custom ESP32 Wroom + SX126x DRF1268T (TCXO) (5, 2, 26, 13)</a></li><li><a href="#custom-esp32-wroom--sx126x-drf1268t-tcxo-5-26-14-12">Custom ESP32 Wroom + SX126x DRF1268T (TCXO) (5, 26, 14, 12)</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/handbook/" class="nav-home"><img src="/handbook/img/logo-white.png" alt="Jitsi Meet Handbook" width="66" height="58"/></a><div><h5>Docs</h5><a href="/handbook/docs/intro.html">Introduction</a><a href="/handbook/docs/user-guide/user-guide-start.html">User Guide</a><a href="/handbook/docs/dev-guide/dev-guide-start.html">Developer Guide</a><a href="/handbook/docs/devops-guide/devops-guide-start.html">Self-Hosting Guide</a></div><div><h5>Community</h5><a href="https://community.jitsi.org" target="_blank" rel="noreferrer noopener">Project Forum</a></div><div><h5>More</h5><a href="https://github.com/jitsi/jitsi-meet" target="_blank" rel="noreferrer noopener">Jitsi Meet on GitHub</a><a class="github-button" href="https://github.com/jitsi/jitsi-meet" data-icon="octicon-star" data-count-href="/jitsi/jitsi-meet/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a><a href="https://github.com/jitsi/handbook" target="_blank" rel="noreferrer noopener">Handbook on GitHub</a><div class="social"><a href="https://twitter.com/jitsinews" class="twitter-follow-button">Follow @jitsinews</a></div></div></section><section class="copyright">Copyright © 2021</section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
