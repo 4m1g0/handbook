@@ -1,3 +1,8 @@
+---
+id: filter
+title: Filter
+---
+
 ## When Filter is needed?
 
 Using filter is a must when you use [LNA](LNA). Otherwise you are risking your LoRa module getting oversaturated and will not get the signal at all. 
