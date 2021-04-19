@@ -1,3 +1,8 @@
+---
+id: Quick-Start
+title: Quick-Start
+---
+
 This quick guide show you how to easily upload the code to your board module using the TinyGS uploader, in one click, and available for Linux, Windows y Mac.
 
 ## Upload the firmware
