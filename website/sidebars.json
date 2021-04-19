@@ -11,11 +11,11 @@
       "Ground-Station-configuration",
       "Radio-Tuning-Guide",
       "Web-application",
-      "Board-Templates",
+      "Board-Templates"
     ],
     "Useful Resources": [
       "LNA",
-      "antenna",
+      "antenna"
     ],
     "Self-Hosting Guide": [
       "devops-guide/devops-guide-start",
