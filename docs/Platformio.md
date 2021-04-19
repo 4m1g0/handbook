@@ -1,3 +1,8 @@
+---
+id: Platformio
+title: Platformio
+---
+
 ## Platformio
 ### Installing platformio
 Platformio can be installed as a plugin for many IDEs. You can find a complete list here: https://docs.platformio.org/en/latest/ide.html#desktop-ide
