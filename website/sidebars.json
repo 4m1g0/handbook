@@ -2,7 +2,7 @@
   "docs": {
     "Getting Started": [
       "intro",
-      "Quick-Start"
+      "Quick-Start",
       "Platformio",
       "Arduino-IDE",
       "FAQ"
