@@ -1,3 +1,8 @@
+---
+id: Ground-Station-configuration
+title: Ground Station configuration
+---
+
 The TinyGS firmware provides a web panel for board configuration. This makes it easy to review the state of the ground station, change any parameter and even upload a new firmware remotely. Also it ensures that configuration is kept after a new firmware version is uploaded.
 
 The first time the board boot it will generate an AP with the name: My TinyGS. Once connected to that network you should be prompted with a web panel to configure the basic parameters of your station. If that were not the case, you can access the web panel using a web browser and going to the url `192.168.4.1`.
