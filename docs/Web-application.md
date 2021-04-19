@@ -1,3 +1,8 @@
+---
+id: Web-application
+title: Web application
+---
+
 The web application is designed to be the center of the TinyGS system. Lately the group has grown so much that using Telegram for everything is no longer viable. We receive so much traffic that we have to be selective with what to send to Telegram in order to not make unnecessary flood and to stay within the Telegram quota. With the web application all the data can be kept organized and well structured.
 
 As you might notice the web application is still a work in progress and we are currently adding more content and functionality.
