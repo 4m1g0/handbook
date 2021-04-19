@@ -3,8 +3,8 @@ The TinyGS firmware provides a web panel for board configuration. This makes it 
 The first time the board boot it will generate an AP with the name: My TinyGS. Once connected to that network you should be prompted with a web panel to configure the basic parameters of your station. If that were not the case, you can access the web panel using a web browser and going to the url `192.168.4.1`.
 
 <p float="left" align="center">
-  <img src="images/config_ap.jpg" width="300" />
-  <img src="images/config_wifimanager.jpg" width="270" /> 
+  <img src="assets/images/config_ap.jpg" width="300" />
+  <img src="assets/images/config_wifimanager.jpg" width="270" /> 
 </p>
 
 The parameters that must be filled are the following:
@@ -30,27 +30,27 @@ The parameters that must be filled are the following:
 ### HELTEC WiFi LoRA 32 V1
 This is the stock Heltec v1 LoRa board, it should be detected automatically and be selected by default if you have this board. 
 
-![](images/boards/heltec_lora_32_v1.jpg)
+![](assets/images/boards/heltec_lora_32_v1.jpg)
 
 ### HELTEC WiFi LoRA 32 V2
 This is the version 2 of the Heltec LoRa board, if you have this board, probably it is not detected automatically and you have to select it on the config panel manually. If you don't do so the Lora communication will not work.
 
-![](images/boards/heltec_lora_32_v2.jpg)
+![](assets/images/boards/heltec_lora_32_v2.jpg)
 
 ### TTGO LoRa 32 v1
 This is the first version of the TTGO LoRa board,it should be detected automatically and be selected by default if you have this board. 
 
-![](images/boards/ttgo_v1.jpg)
+![](assets/images/boards/ttgo_v1.jpg)
 
 ### TTGO LoRA 32 v2
 This is the version 2 of the TTGO LoRa board, if you have this board, probably it is not detected automatically and you have to select it on the config panel manually. If you don't do so the Lora communication will not work.
 
-![](images/boards/ttgo_v2.jpg)
+![](assets/images/boards/ttgo_v2.jpg)
 
 ### T-BEAM + OLED
 Warning this board is supposed to work with this configuration but it will not be automatically detected and it's not properly tested yet. If you have this board we would like to hear your experience.
 
-![](images/boards/ttgo_tbeam.jpg)
+![](assets/images/boards/ttgo_tbeam.jpg)
 
 ### Custom ESP32 Wroom + SX126x (Crystal)
 This is a custom made ground station with a SX1268 module provided with a crystal oscillator (no TCXO). It is set up on a breadboard although a soldered protoboard is highly recommended if you decide to go for this type of setup. The OLED display is optional but also recommended.
@@ -72,14 +72,14 @@ Pin definition for this board is the following:
 | Lora_MOSI | 23 |
 | Lora_SCK | 18 |
 
-![](images/boards/custom_esp32_sx1268_crystal.jpg)
+![](assets/images/boards/custom_esp32_sx1268_crystal.jpg)
 
 ### TTGO LoRa 32 V2 Modified with module SX126x (crystal)
 The TTGO V2 board comes with a soldered module on board. This means that, with a little patience, the appropriate tools and some expertise, it's possible to desolder the original SX127X lora module and solder a SX126X. This configuration is meant to use a SX126X with a crystal oscillator (no TCXO).
 
 It's also needed to use jumper cables to connect LoRa pins DIO1 to GPIO 33 and BUSSY to GPIO 32 which are not connected on the TTGO V2 but exposed as pins.
 
-![](images/boards/ttgo_v2.jpg)
+![](assets/images/boards/ttgo_v2.jpg)
 
 ### Custom ESP32 Wroom + SX126x DRF1268T (TCXO) (5, 2, 26, 13)
 

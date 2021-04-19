@@ -10,18 +10,18 @@ My recommendation is to use VSCode or Atom, you can find installation guides her
 ### Open the project in VSCode
 Once you have cloned this project to a local directory, you can open it on Visual Studio code in File > Add folder to workspace.
 
-![Add folder to workspace VSCode](images/add_folder_to_workspace.png "Add folder to workspace VSCode")
+![Add folder to workspace VSCode](assets/images/add_folder_to_workspace.png "Add folder to workspace VSCode")
 
 Then select the `TinyGS` folder of the repository and click open, make sure it is the root folder and that it has the platformio.ino inside.
 
-![Select folder](images/Select_folder.png "Select folder")
+![Select folder](assets/images/Select_folder.png "Select folder")
 
 After that, the project should be loaded in visual studio and ready to configure and build. **There is no need to change anything on the code if you have one of the supported boards. Platformio will compile for heltec_wifi_lora_32 but that is normal even if your board is not Heltec.**
 
 ## Build and upload the project
 Connect the board to the computer and click on the upload button from the platformio toolbar, or go to Terminal -> Run Task -> Upload.
 
-![Upload](images/upload.png "Upload")
+![Upload](assets/images/upload.png "Upload")
 
 All the dependencies will be configured and built automatically.
 

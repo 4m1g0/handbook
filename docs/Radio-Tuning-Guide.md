@@ -3,7 +3,7 @@ For the tinyGS groundstations to listen to a specific satellite, many parameters
 ## Automatic tuning
 On the local configuration dashboard of the board there is an option to enable or disable autoTuning.
 
-![](images/autoTune.png)
+![](assets/images/autoTune.png)
 
 If you enable this option, the server will configure your station to listen the most appropriate satellite and even change the configuration dynamically based on the satellites location and prediction so that your station maximizes the chances of receiving a frame.
 
@@ -15,26 +15,26 @@ For experimentation purposes or to test new satellites, you might want to manual
 ### Change station parameters from the web application
 The web application on https://tinygs.com has a personal dashboard where you can view your stations and control them remotely. To access the personal dashboard you have to use the command `/weblogin` on the `@tinygs_personal_bot` bot. It will provide you with a passwordless login link that will allow you to login into your panel.
 
-![](images/weblogin.png)
+![](assets/images/weblogin.png)
 
 Once you follow that link you will be logged into the web application and you will see a link to your personal dashboard on the top of the page.
 
-![](images/profile_link.png)
+![](assets/images/profile_link.png)
 
 Inside your dashboard you will see your statistics and the list of your stations. If you click on one of the stations you can see the station configuration as well as the packets received by such station. If you are properly logged in you will see an edit button to edit your station parameters.
 
-![](images/personal_dashboard_edit.png)
+![](assets/images/personal_dashboard_edit.png)
 
 Here you can choose between selecting one of the predefined templates to listen one of the supported satellites from the list or define your own template on the text field. You can find more information about modem templates bellow.
 
-![](images/edit_station.png)
+![](assets/images/edit_station.png)
 
 Be aware that if you have automatic tuning enabled, your configuration might change when you have another satellite overhead, however the system will try to prioritize your default configuration.
 
 ### Change the station parameters from the local config dashboard
 If you login into the local web config dashboard you will see one parameter called `modem_startup`, this parameter will control the initial radio configuration of your station. Be aware that this parameter will be also modified when you change your station settings with any of the other methods.
 
-![](images/modem_startup.png)
+![](assets/images/modem_startup.png)
 
 The modem config string has the following form:
 

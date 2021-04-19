@@ -4,12 +4,12 @@ TinyGS implements 3 OTA updates methods: Automagically, manually through the loc
 
 ## Automagical update
 
-![](images/magical_update.png)
+![](assets/images/magical_update.png)
 
 On the local config dashboard there is an option to enable or disable automatic updates. If you leave this option enabled, the board will automatically check for updates periodically and update itself.
 
 ## Local dashboard update
-![](images/webconfig_udpate.png)
+![](assets/images/webconfig_udpate.png)
 
 If you login to your local config dashboard by introducing the board ip (shown in the OLED display) on your browser and selecting the option `Upload new version` you will be asked to upload a new bin file from your computer. You will find bin files attached to every TinyGS firmware release here: https://github.com/G4lile0/tinyGS/releases
 

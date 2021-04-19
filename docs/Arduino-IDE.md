@@ -37,12 +37,12 @@ Arduino IDE makes it not possible to configure the libraries automatically so yo
 ### Open the project in Arduino IDE
 Once you have cloned this project to a local directory, you can open it from the Arduino IDE in `File > Add folder` to workspace. And select the .ino file which is located in `TinyGS > TinyGS.ino`
 
-![Open on Arduino IDE](images/open_arduino.png "Open on Arduino IDE")
+![Open on Arduino IDE](assets/images/open_arduino.png "Open on Arduino IDE")
 
 ### Build and upload the project
 Connect the board to the computer, select your board in the Arduino IDE `Tools > Boards ` if you have doubts you can select `Heltec Lora 32 V1` this configuration will work for most of the boards based on ESP32.
 
-![Select board on Arduino IDE](images/select_board_arduino.png "Select board on Arduino IDE")
+![Select board on Arduino IDE](assets/images/select_board_arduino.png "Select board on Arduino IDE")
 
 Then select the port where the board is connected to the computer in `Tools > Ports`
 

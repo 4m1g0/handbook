@@ -4,7 +4,7 @@ If you have a custom made board, or your board doesn't appear on the list, templ
 
 ## How to use it 
 
-![](images/board_template.png)
+![](assets/images/board_template.png)
 
 On the config dashboard you can go to the advanced options and fill the `Board Template` field with your custom template. If you want to go back to use the default boards, leave this field completely empty.
 
