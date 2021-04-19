@@ -1,3 +1,8 @@
+---
+id: Radio-Tuning-Guide
+title: Radio Tuning Guide
+---
+
 For the tinyGS groundstations to listen to a specific satellite, many parameters have to be adjusted. TinyGS provides with different methods to do so that can be classified in automatic or manual.
 
 ## Automatic tuning
